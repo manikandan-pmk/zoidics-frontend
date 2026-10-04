@@ -20,7 +20,7 @@ const formatDate = (isoDate: string) => {
 const getImageUrl = (url: string) => {
   if (!url)
     return "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800";
-  return url.startsWith("/") ? `http://localhost:3000${url}` : url;
+  return url.startsWith("/") ? `https://api.zoidics.com${url}` : url;
 };
 
 const Blog: React.FC = () => {

@@ -37,7 +37,7 @@ interface ProjectData {
    API
 ========================================================= */
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL || "https://api.zoidics.com";
 
 /*
   IMPORTANT:

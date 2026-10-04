@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:3000",
+        target: "https://api.zoidics.com",
         changeOrigin: true,
         secure: false,
       },

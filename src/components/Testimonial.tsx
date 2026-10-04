@@ -154,7 +154,7 @@ const Testimonial: React.FC = () => {
                   <img
                     src={
                       feedback.imageUrl.startsWith("/")
-                        ? `http://localhost:3000${feedback.imageUrl}`
+                        ? `https://api.zoidics.com${feedback.imageUrl}`
                         : feedback.imageUrl
                     }
                     alt={feedback.name}

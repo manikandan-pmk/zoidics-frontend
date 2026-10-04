@@ -113,7 +113,7 @@ const Specialties: React.FC = () => {
             // Ensure image URL points to the backend server if it's a relative upload path
             img: s.imageUrl
               ? s.imageUrl.startsWith("/")
-                ? `http://localhost:3000${s.imageUrl}`
+                ? `https://api.zoidics.com${s.imageUrl}`
                 : s.imageUrl
               : "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=200",
           }));

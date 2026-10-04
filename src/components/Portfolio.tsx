@@ -52,7 +52,7 @@ const Portfolio: React.FC = () => {
   const [error, setError] = useState("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const baseURL = api.defaults.baseURL || "http://localhost:3000";
+  const baseURL = api.defaults.baseURL || "https://api.zoidics.com";
 
   const getImageUrl = (imageUrl?: string | null): string => {
     if (!imageUrl) return "/placeholder-project.jpg";
