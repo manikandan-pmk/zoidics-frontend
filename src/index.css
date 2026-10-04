@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  /* Colors */
+  --cream: #ffe9d9;
+  --orange: #ffb646;
+  --orange-text: #ff8a24;
+  --black: #080808;
+  --dark: #151515;
+  --white: #ffffff;
+  --card: #f5f5f5;
+  --text: #080808;
+  --muted: #858585;
+  --border: #d8d0ca;
+
+  /* Typography */
+  --font-primary: "Sora", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  background: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
