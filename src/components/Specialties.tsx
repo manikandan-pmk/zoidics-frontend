@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
 import {
   Globe,
   Smartphone,
@@ -27,7 +28,7 @@ const getIconForService = (name: string) => {
     return (
       <MessageSquare size={18} strokeWidth={2} className="text-[#4338ca]" />
     );
-  if (lowerName.includes("e-commerce"))
+  if (lowerName.includes("e-commerce") || lowerName.includes("ecommerce"))
     return (
       <ShoppingCart size={18} strokeWidth={2} className="text-[#14b8a6]" />
     );
@@ -37,41 +38,64 @@ const getIconForService = (name: string) => {
     return <Settings size={18} strokeWidth={2} className="text-[#be123c]" />;
   if (lowerName.includes("seo") || lowerName.includes("growth"))
     return <TrendingUp size={18} strokeWidth={2} className="text-[#0369a1]" />;
-  if (lowerName.includes("cloud"))
+  if (lowerName.includes("cloud") || lowerName.includes("deployment"))
     return <Cloud size={18} strokeWidth={2} className="text-[#6d28d9]" />;
   return <CodeXml size={18} strokeWidth={2} className="text-[#1d4ed8]" />; // Default icon
+};
+
+// Helper to map service names to exact routes
+const getRouteForService = (name: string) => {
+  const lowerName = name.toLowerCase();
+  if (lowerName.includes("web")) return "/web-development";
+  if (lowerName.includes("app")) return "/app-development";
+  if (lowerName.includes("chatbot")) return "/ai-chatbot";
+  if (lowerName.includes("ecommerce") || lowerName.includes("e-commerce"))
+    return "/ecommerce-solutions";
+  if (lowerName.includes("integration")) return "/ai-integration";
+  if (lowerName.includes("automation")) return "/business-automation";
+  if (lowerName.includes("seo") || lowerName.includes("growth"))
+    return "/seo-growth";
+  if (lowerName.includes("cloud") || lowerName.includes("deployment"))
+    return "/cloud-solutions";
+  if (lowerName.includes("billing")) return "/billing-system";
+  if (lowerName.includes("custom") || lowerName.includes("software"))
+    return "/custom-software";
+  return "/contact"; // Default fallback
 };
 
 const DesktopServicePill = ({
   service,
   extraClass = "",
+  onClick,
 }: {
   service: any;
   extraClass?: string;
+  onClick: () => void;
 }) => (
   <article
-    className={`desktop-pill opacity-0 bg-white rounded-full flex items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] w-[260px] lg:w-[280px] h-[72px] overflow-hidden group hover:scale-[1.03] hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.12)] transition-all duration-300 z-10 cursor-pointer ${extraClass}`}
+    onClick={onClick}
+    className={`desktop-pill opacity-0 bg-white rounded-full flex items-center shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] w-[270px] lg:w-[300px] h-[76px] overflow-hidden group hover:scale-[1.03] hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] transition-all duration-300 z-10 cursor-pointer ${extraClass}`}
   >
-    <div className="flex items-center flex-1 pl-2 py-2 relative z-20 bg-white h-full rounded-l-full">
-      <div className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center shrink-0 bg-white shadow-sm">
+    <div className="flex items-center flex-1 pl-3 py-2 relative z-20 bg-white h-full rounded-l-full">
+      <div className="w-11 h-11 rounded-full border border-gray-100 flex items-center justify-center shrink-0 bg-white shadow-sm group-hover:scale-110 transition-transform duration-300">
         {service.icon}
       </div>
-      <div className="ml-3 flex-1">
-        <h3 className="font-bold text-[#080808] text-[13px] leading-[1.2] whitespace-pre-line">
+      <div className="ml-3 flex-1 pr-2">
+        <h3 className="font-bold text-[#080808] text-[13px] leading-[1.2] whitespace-pre-line group-hover:text-[#ff8a24] transition-colors duration-300">
           {service.title}
         </h3>
       </div>
     </div>
 
-    <div className="w-[100px] h-full relative shrink-0">
-      <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white to-transparent z-10" />
+    {/* Upgraded Image Container - Wider and more visible */}
+    <div className="w-[110px] lg:w-[130px] h-full relative shrink-0 overflow-hidden">
+      <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
       <img
         src={service.img}
         alt={service.title.replace("\n", " ")}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
         loading="lazy"
         onError={(e) => {
-          // Fallback image in case backend image is broken
           (e.target as HTMLImageElement).src =
             "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=200";
         }}
@@ -82,6 +106,7 @@ const DesktopServicePill = ({
 
 const Specialties: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const navigate = useNavigate();
 
   // State variables for dynamic data
   const [allServices, setAllServices] = useState<any[]>([]);
@@ -98,24 +123,22 @@ const Specialties: React.FC = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        // Use relative path to leverage Vite Proxy (CORS fix)
         const response = await axios.get("/api/services");
 
         if (response.data.success) {
           const fetchedData = response.data.services;
+          const API_URL = "https://api.zoidics.com";
 
-          // Transform backend data to frontend format
           const formattedServices = fetchedData.map((s: any) => ({
             id: s.id,
-            // Replace first space with newline for stacked text look
             title: s.name.replace(" ", "\n"),
             icon: getIconForService(s.name),
-            // Ensure image URL points to the backend server if it's a relative upload path
+            path: getRouteForService(s.name),
             img: s.imageUrl
-              ? s.imageUrl.startsWith("/")
-                ? `https://api.zoidics.com${s.imageUrl}`
-                : s.imageUrl
-              : "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=200",
+              ? s.imageUrl.startsWith("http")
+                ? s.imageUrl
+                : `${API_URL}${s.imageUrl}`
+              : "",
           }));
 
           setAllServices(formattedServices);
@@ -263,6 +286,7 @@ const Specialties: React.FC = () => {
               <DesktopServicePill
                 key={service.id}
                 service={service}
+                onClick={() => navigate(service.path)}
                 extraClass={index === 1 ? "-mr-12" : "mr-0"}
               />
             ))}
@@ -271,7 +295,11 @@ const Specialties: React.FC = () => {
           <div className="flex flex-col items-center justify-center gap-14 w-[450px]">
             <div className="flex w-full justify-center">
               {groupedServices.top?.map((service: any) => (
-                <DesktopServicePill key={service.id} service={service} />
+                <DesktopServicePill
+                  key={service.id}
+                  service={service}
+                  onClick={() => navigate(service.path)}
+                />
               ))}
             </div>
 
@@ -285,7 +313,11 @@ const Specialties: React.FC = () => {
 
             <div className="flex flex-row gap-8 items-center justify-center w-full">
               {groupedServices.bottom?.map((service: any) => (
-                <DesktopServicePill key={service.id} service={service} />
+                <DesktopServicePill
+                  key={service.id}
+                  service={service}
+                  onClick={() => navigate(service.path)}
+                />
               ))}
             </div>
           </div>
@@ -295,6 +327,7 @@ const Specialties: React.FC = () => {
               <DesktopServicePill
                 key={service.id}
                 service={service}
+                onClick={() => navigate(service.path)}
                 extraClass={index === 1 ? "-ml-12" : "ml-0"}
               />
             ))}
@@ -326,13 +359,14 @@ const Specialties: React.FC = () => {
                   }}
                 >
                   <article
+                    onClick={() => navigate(service.path)}
                     className="mobile-circle-node flex flex-col items-center justify-center w-[75px] sm:w-[90px] gap-2 cursor-pointer group"
                     aria-label={service.title.replace("\n", " ")}
                   >
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-full shadow-[0_8px_20px_-6px_rgba(0,0,0,0.15)] border border-gray-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-full shadow-[0_8px_20px_-6px_rgba(0,0,0,0.15)] border border-gray-50 flex items-center justify-center group-hover:scale-110 group-hover:border-[#ffb646] transition-all duration-300">
                       {service.icon}
                     </div>
-                    <span className="text-[10px] sm:text-[11px] font-bold text-center leading-tight text-gray-800 drop-shadow-sm">
+                    <span className="text-[10px] sm:text-[11px] font-bold text-center leading-tight text-gray-800 drop-shadow-sm group-hover:text-[#ff8a24] transition-colors duration-300">
                       {service.title.replace("\n", " ")}
                     </span>
                   </article>

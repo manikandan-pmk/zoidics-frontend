@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import gsap from "gsap";
 import logo from "../assets/Z_logo.png"; // Ensure this path is correct for your project
+import axios from "axios";
 
 type Message = {
   role: "user" | "bot";
@@ -448,14 +449,14 @@ export default function Chatbot() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message, history, lead }),
-      });
+      const response = await axios.post("/api/chat", {
+  message,
+  history,
+  lead,
+});
 
-      const data = await response.json();
-      if (!response.ok || !data.success)
+const data = response.data;
+      if (!response.data || !data.success)
         throw new Error(data.error || "Something went wrong");
 
       setLead(data.lead ?? {});
@@ -506,7 +507,7 @@ export default function Chatbot() {
               onMouseEnter={handleRobotEnter}
               onMouseLeave={handleRobotLeave}
               aria-label="Open Zoidics AI Assistant"
-              className="relative flex h-[86px] w-[86px] items-center justify-center rounded-full bg-transparent transition-transform active:scale-95"
+              className="relative flex h-[86px] w-[86px] cursor-pointer items-center justify-center rounded-full bg-transparent transition-transform active:scale-95"
             >
               {/* Faint Outer Ring */}
               <div

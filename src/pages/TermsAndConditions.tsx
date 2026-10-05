@@ -10,6 +10,7 @@ import {
   Mail,
   ArrowUp,
 } from "lucide-react";
+import Seo from "../components/Seo";
 
 const sections = [
   ["about", "01", "About Zoidics"],
@@ -36,6 +37,14 @@ const sections = [
 
 const TermsAndConditions: React.FC = () => {
   return (
+    <>
+    <Seo
+      title="Terms & Conditions"
+      description="Read the Terms and Conditions for using the Zoidics Software Service website, services, digital solutions, and communication channels."
+      keywords="Zoidics terms and conditions, Zoidics Software Service terms, website terms and conditions, software services Chennai, web development terms, app development terms"
+      url="https://zoidics.com/terms-and-conditions"
+    />
+
     <main className="min-h-screen w-full bg-[#ffe9d9] font-['Sora',sans-serif] text-[#080808]">
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-black/5">
@@ -727,6 +736,7 @@ const TermsAndConditions: React.FC = () => {
         <ArrowUp size={19} />
       </button>
     </main>
+    </>
   );
 };
 

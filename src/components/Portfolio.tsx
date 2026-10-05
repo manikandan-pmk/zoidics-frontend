@@ -309,7 +309,7 @@ const Portfolio: React.FC = () => {
               <div className="portfolio-item mt-2 w-full md:col-span-2">
                 <button
                   onClick={() => navigate("/projects")}
-                  className="group flex w-full items-center justify-center gap-3 rounded-xl bg-[#111] py-4 text-[16px] font-medium text-white transition-all duration-300 hover:bg-[#ff8a24] sm:py-5 sm:text-[17px]"
+                  className="group flex w-full items-center cursor-pointer justify-center gap-3 rounded-xl bg-[#111] py-4 text-[16px] font-medium text-white transition-all duration-300 hover:bg-[#ff8a24] sm:py-5 sm:text-[17px]"
                 >
                   View All Projects
                   <ArrowUpRight

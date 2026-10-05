@@ -9,6 +9,7 @@ import {
   Mail,
   ArrowUp,
 } from "lucide-react";
+import Seo from "../components/Seo";
 
 const sections = [
   { id: "information", number: "01", title: "Information We Collect" },
@@ -37,6 +38,13 @@ const PrivacyPolicy: React.FC = () => {
   };
 
   return (
+    <>
+    <Seo
+      title="Privacy Policy"
+      description="Read the Zoidics Privacy Policy to learn how we collect, use, store, protect, and manage personal information when you visit our website or communicate with Zoidics Software Service."
+      keywords="Zoidics privacy policy, Zoidics Software Service privacy policy, data protection, personal information, privacy policy Chennai, website privacy policy, data security, cookies policy"
+      url="https://zoidics.com/privacy-policy"
+    />
     <main className="min-h-screen w-full bg-[#ffe9d9] font-['Sora',sans-serif] text-[#080808]">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-black/5">
@@ -595,6 +603,7 @@ const PrivacyPolicy: React.FC = () => {
         <ArrowUp size={19} />
       </button>
     </main>
+     </>
   );
 };
 
@@ -639,8 +648,6 @@ function LegalList({ items }: { items: string[] }) {
   );
 }
 
-function SectionDivider() {
-  return <div className="my-12 border-t border-black/10" />;
-}
+
 
 export default PrivacyPolicy;
