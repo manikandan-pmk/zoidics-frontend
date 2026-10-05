@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import axios from "axios";
 import Seo from "../components/Seo";
+import api from "../api/axios";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +39,7 @@ interface ProjectData {
 // API
 // =========================================================
 
-const API_URL = import.meta.env.VITE_API_URL || "https://api.zoidics.com";
+
 
 /*
  * IMPORTANT:
@@ -46,10 +47,7 @@ const API_URL = import.meta.env.VITE_API_URL || "https://api.zoidics.com";
  * unnecessarily.
  */
 
-const api = axios.create({
-  baseURL: API_URL,
-  withCredentials: false,
-});
+
 
 // =========================================================
 // IMAGE URL HELPER
@@ -72,7 +70,7 @@ function getImageUrl(imageUrl: string | null) {
     return imageUrl;
   }
 
-  return `${API_URL}${imageUrl}`;
+  return `${api.defaults.baseURL}${imageUrl}`;
 }
 
 // =========================================================

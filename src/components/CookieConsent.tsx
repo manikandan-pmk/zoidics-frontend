@@ -63,13 +63,13 @@ const CookieConsent = () => {
   }
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 z-[9999] flex justify-center sm:bottom-5">
-      <div className="w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#111111]/95 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+    <div className="fixed bottom-3 left-3 right-3 z-[9998] flex justify-center sm:bottom-5 sm:left-4 sm:right-4">
+      <div className="w-full max-w-5xl overflow-hidden rounded-[20px] border border-white/10 bg-[#111111]/95 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:rounded-2xl">
         {!showSettings ? (
-          <div className="flex flex-col gap-4 px-5 py-4 sm:px-6 sm:py-5 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-3 px-4 py-3.5 sm:gap-4 sm:px-6 sm:py-5 lg:flex-row lg:items-center lg:justify-between">
             {/* Content */}
-            <div className="flex items-start gap-3">
-              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#d99a24]/10 text-lg">
+            <div className="flex min-w-0 items-start gap-2.5 sm:gap-3">
+              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#d99a24]/10 text-base sm:h-9 sm:w-9 sm:text-lg">
                 🍪
               </div>
 
@@ -78,7 +78,7 @@ const CookieConsent = () => {
                   We use cookies
                 </h2>
 
-                <p className="mt-1 max-w-2xl text-xs leading-5 text-gray-400 sm:text-sm">
+                <p className="mt-1 max-w-2xl text-[11px] leading-4 text-gray-400 sm:text-sm sm:leading-5">
                   We use essential cookies to keep Zoidics working and analytics
                   cookies to improve your experience.
                 </p>
@@ -86,11 +86,11 @@ const CookieConsent = () => {
             </div>
 
             {/* Buttons */}
-            <div className="flex shrink-0 flex-wrap gap-2">
+            <div className="grid w-full shrink-0 grid-cols-3 gap-1.5 sm:flex sm:w-auto sm:flex-wrap sm:gap-2">
               <button
                 type="button"
                 onClick={handleReject}
-                className="rounded-lg border cursor-pointer border-white/10 px-3.5 py-2 text-xs font-medium text-gray-300 transition hover:border-white/20 hover:bg-white/5 sm:px-4 sm:text-sm"
+                className="flex min-w-0 items-center justify-center rounded-lg border border-white/10 px-2 py-2 cursor-pointer text-[11px] font-medium text-gray-300 transition hover:border-white/20 hover:bg-white/5 sm:px-4 sm:text-sm"
               >
                 Reject
               </button>
@@ -98,7 +98,7 @@ const CookieConsent = () => {
               <button
                 type="button"
                 onClick={() => setShowSettings(true)}
-                className="rounded-lg border border-[#d99a24]/40 px-3.5 cursor-pointer py-2 text-xs font-medium text-[#e5ad3b] transition hover:bg-[#d99a24]/10 sm:px-4 sm:text-sm"
+                className="flex min-w-0 items-center justify-center rounded-lg border border-[#d99a24]/40 px-2 py-2 cursor-pointer text-[11px] font-medium text-[#e5ad3b] transition hover:bg-[#d99a24]/10 sm:px-4 sm:text-sm"
               >
                 Customize
               </button>
@@ -106,7 +106,7 @@ const CookieConsent = () => {
               <button
                 type="button"
                 onClick={handleAcceptAll}
-                className="rounded-lg bg-[#d99a24] px-4 py-2 cursor-pointer text-xs font-semibold text-black transition hover:bg-[#e8ae3b] sm:px-5 sm:text-sm"
+                className="flex min-w-0 items-center justify-center rounded-lg bg-[#d99a24] px-2 py-2 cursor-pointer text-[11px] font-semibold text-black transition hover:bg-[#e8ae3b] sm:px-5 sm:text-sm"
               >
                 Accept All
               </button>

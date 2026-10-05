@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import api from "../api/axios";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,7 +32,9 @@ const Testimonial: React.FC = () => {
     const fetchTestimonials = async () => {
       try {
         // Vite proxy ke thru call lag rahi hai
-        const response = await axios.get("/api/testimonials");
+        
+        const response = await api
+        .get("/api/testimonials");
         if (response.data.success) {
           // Sirf published testimonials ko filter kar rahe hain (optional security)
           const fetchedData = response.data.testimonials.filter(
@@ -154,7 +157,7 @@ const Testimonial: React.FC = () => {
                   <img
                     src={
                       feedback.imageUrl.startsWith("/")
-                        ? `https://api.zoidics.com${feedback.imageUrl}`
+                        ? `${api.defaults.baseURL}${feedback.imageUrl}`
                         : feedback.imageUrl
                     }
                     alt={feedback.name}

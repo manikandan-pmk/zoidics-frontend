@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import gsap from "gsap";
 import logo from "../assets/Z_logo.png"; // Ensure this path is correct for your project
-import axios from "axios";
+
+import api from "../api/axios";
 
 type Message = {
   role: "user" | "bot";
@@ -449,7 +450,7 @@ export default function Chatbot() {
     setLoading(true);
 
     try {
-      const response = await axios.post("/api/chat", {
+      const response = await api.post("/api/chat", {
   message,
   history,
   lead,
@@ -483,7 +484,7 @@ const data = response.data;
           FLOATING ACTION WIDGETS
       ================================================= */}
       {!open && (
-        <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-center gap-4">
+        <div className="fixed bottom-[10.5rem] right-3 z-[9999] flex flex-col items-center gap-3 sm:bottom-6 sm:right-6 sm:gap-4">
           {/* WhatsApp Button Element */}
           <a
             href="https://wa.me/919025187388"
@@ -507,18 +508,18 @@ const data = response.data;
               onMouseEnter={handleRobotEnter}
               onMouseLeave={handleRobotLeave}
               aria-label="Open Zoidics AI Assistant"
-              className="relative flex h-[86px] w-[86px] cursor-pointer items-center justify-center rounded-full bg-transparent transition-transform active:scale-95"
+              className="relative flex h-[72px] w-[72px] cursor-pointer items-center justify-center rounded-full bg-transparent transition-transform active:scale-95 sm:h-[86px] sm:w-[86px]"
             >
               {/* Faint Outer Ring */}
               <div
                 ref={outerRingRef}
-                className="absolute inset-[-10px] rounded-full border-[3px] border-[#ffad1f]/35"
+                className="absolute inset-[-7px] rounded-full border-[2.5px] border-[#ffad1f]/35 sm:inset-[-10px] sm:border-[3px]"
               />
 
               {/* Solid Glowing Inner Ring */}
               <div
                 ref={innerRingRef}
-                className="absolute inset-[-2px] rounded-full border-[3.5px] border-[#ffb646] shadow-[0_0_18px_rgba(255,173,31,0.5)]"
+                className="absolute inset-[-2px] rounded-full border-[3px] border-[#ffb646] shadow-[0_0_18px_rgba(255,173,31,0.5)] sm:border-[3.5px]"
               />
 
               {/* Realistic 3D Vector Robot Container - Transparent Background */}
@@ -539,17 +540,17 @@ const data = response.data;
       {open && (
         <div
           ref={chatWindowRef}
-          className="fixed bottom-4 right-4 z-[9999] flex h-[min(680px,calc(100vh-32px))] w-[410px] max-w-[calc(100vw-20px)] flex-col overflow-hidden rounded-[30px] border border-black/10 bg-[#f7f7f7] shadow-[0_30px_100px_rgba(0,0,0,0.28)] sm:bottom-5 sm:right-5"
+          className="fixed bottom-2 left-2 right-2 z-[9999] flex h-[min(680px,calc(100vh-16px))] w-auto max-w-none flex-col overflow-hidden rounded-[24px] border border-black/10 bg-[#f7f7f7] shadow-[0_30px_100px_rgba(0,0,0,0.28)] sm:bottom-5 sm:left-auto sm:right-5 sm:h-[min(680px,calc(100vh-40px))] sm:w-[410px] sm:max-w-[calc(100vw-20px)] sm:rounded-[30px]"
         >
           {/* HEADER */}
           <div
             ref={headerRef}
-            className="relative shrink-0 overflow-hidden bg-[#0b0b0b] px-5 py-4 text-white"
+            className="relative shrink-0 overflow-hidden bg-[#0b0b0b] px-4 py-3 text-white sm:px-5 sm:py-4"
           >
             <div className="pointer-events-none absolute -right-16 -top-20 h-48 w-48 rounded-full bg-[#ffad1f]/20 blur-3xl" />
 
-            <div className="relative flex items-center gap-3">
-              <div className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[16px] border border-white/15 bg-white shadow-lg p-1">
+            <div className="relative flex items-center gap-2.5 sm:gap-3">
+              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[13px] border border-white/15 bg-white shadow-lg p-1 sm:h-12 sm:w-12 sm:rounded-[16px]">
                 <img
                   src={logo}
                   alt="Zoidics Logo"
@@ -577,7 +578,7 @@ const data = response.data;
                 type="button"
                 onClick={startNewChat}
                 disabled={loading}
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white disabled:opacity-30"
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white disabled:opacity-30 sm:h-9 sm:w-9 sm:rounded-xl"
               >
                 <PlusIcon />
               </button>
@@ -585,7 +586,7 @@ const data = response.data;
               <button
                 type="button"
                 onClick={handleCloseChat}
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white"
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/60 transition hover:bg-white/10 hover:text-white sm:h-9 sm:w-9 sm:rounded-xl"
               >
                 <CloseIcon />
               </button>
@@ -593,9 +594,9 @@ const data = response.data;
           </div>
 
           {/* AI INFO */}
-          <div className="shrink-0 border-b border-black/[0.06] bg-white px-5 py-3">
+          <div className="shrink-0 border-b border-black/[0.06] bg-white px-4 py-2.5 sm:px-5 sm:py-3">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl bg-gray-50 p-1 border border-gray-100">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 p-1 sm:h-9 sm:w-9 sm:rounded-xl">
                 <img
                   src={logo}
                   alt="Logo"
@@ -614,7 +615,7 @@ const data = response.data;
           </div>
 
           {/* CHAT BODY */}
-          <div className="flex-1 overflow-y-auto bg-[#f7f7f7] px-4 py-5 scrollbar-thin">
+          <div className="min-h-0 flex-1 overflow-y-auto bg-[#f7f7f7] px-3 py-4 scrollbar-thin sm:px-4 sm:py-5">
             {messages.length === 1 && (
               <div className="mb-5 text-center">
                 <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-black/25">
@@ -675,10 +676,10 @@ const data = response.data;
           </div>
 
           {/* INPUT */}
-          <div className="shrink-0 border-t border-black/[0.07] bg-white p-3">
+          <div className="shrink-0 border-t border-black/[0.07] bg-white p-2.5 sm:p-3">
             <form onSubmit={sendMessage}>
-              <div className="flex items-center gap-2 rounded-[20px] border border-black/[0.09] bg-[#f8f8f8] p-1.5 transition focus-within:border-[#ffad1f] focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(255,173,31,0.10)]">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-1">
+              <div className="flex min-w-0 items-center gap-1.5 rounded-[18px] border border-black/[0.09] bg-[#f8f8f8] p-1.5 transition focus-within:border-[#ffad1f] focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(255,173,31,0.10)] sm:gap-2 sm:rounded-[20px]">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1 sm:h-9 sm:w-9 sm:rounded-xl">
                   <img
                     src={logo}
                     alt="AI"
@@ -692,12 +693,12 @@ const data = response.data;
                   placeholder="Ask Zoidics AI..."
                   disabled={loading}
                   maxLength={1500}
-                  className="min-w-0 flex-1 bg-transparent px-1 py-2.5 text-[13px] text-black outline-none placeholder:text-black/30"
+                  className="min-w-0 flex-1 bg-transparent px-1 py-2 text-[12px] text-black outline-none placeholder:text-black/30 sm:py-2.5 sm:text-[13px]"
                 />
                 <button
                   type="submit"
                   disabled={loading || !input.trim()}
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[14px] bg-[#ffad1f] text-black shadow-sm transition-all hover:scale-105 hover:bg-[#ffb936] active:scale-95 disabled:cursor-not-allowed disabled:opacity-30"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[12px] bg-[#ffad1f] text-black shadow-sm transition-all hover:scale-105 hover:bg-[#ffb936] active:scale-95 disabled:cursor-not-allowed disabled:opacity-30 sm:h-10 sm:w-10 sm:rounded-[14px]"
                 >
                   <SendIcon />
                 </button>

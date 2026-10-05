@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight, X } from "lucide-react";
+import api from "../api/axios";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +38,7 @@ const Blog: React.FC = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get("/api/blogs");
+        const response = await api.get("/api/blogs");
         if (response.data.success) {
           setBlogs(response.data.blogs);
         }

@@ -14,6 +14,7 @@ import {
   Cloud,
   CodeXml,
 } from "lucide-react";
+import api from "../api/axios";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -123,11 +124,12 @@ const Specialties: React.FC = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("/api/services");
+        
 
-        if (response.data.success) {
-          const fetchedData = response.data.services;
-          const API_URL = "https://api.zoidics.com";
+const response = await api.get("/api/services");
+
+if (response.data.success) {
+  const fetchedData = response.data.services;
 
           const formattedServices = fetchedData.map((s: any) => ({
             id: s.id,
@@ -137,7 +139,7 @@ const Specialties: React.FC = () => {
             img: s.imageUrl
               ? s.imageUrl.startsWith("http")
                 ? s.imageUrl
-                : `${API_URL}${s.imageUrl}`
+                : `${api.defaults.baseURL}${s.imageUrl}`
               : "",
           }));
 
