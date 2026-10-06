@@ -147,17 +147,18 @@ const Blog: React.FC = () => {
               }`}
             >
               {/* Image Wrapper */}
-              <div className="w-full h-[320px] rounded-3xl overflow-hidden mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
-                <img
-                  src={getImageUrl(post.imageUrl)}
-                  alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src =
-                      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800";
-                  }}
-                />
-              </div>
+              {/* Image Wrapper */}
+<div className="w-full h-[320px] rounded-3xl overflow-hidden mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-500 bg-gray-100">
+  <img
+    src={getImageUrl(post.imageUrl)}
+    alt={post.title}
+    className="w-full h-full object-contain transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+    onError={(e) => {
+      (e.target as HTMLImageElement).src =
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800";
+    }}
+  />
+</div>
 
               {/* Meta Info Area */}
               <div className="flex items-center gap-4 text-[13px] font-medium mb-3 tracking-wide">
@@ -207,18 +208,19 @@ const Blog: React.FC = () => {
               <X size={20} strokeWidth={2.5} />
             </button>
 
-            {/* Modal Hero Image */}
-            <div className="w-full h-[250px] sm:h-[400px] overflow-hidden bg-gray-100">
-              <img
-                src={getImageUrl(selectedBlog.imageUrl)}
-                alt={selectedBlog.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src =
-                    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800";
-                }}
-              />
-            </div>
+            
+           {/* Modal Hero Image */}
+<div className="w-full h-[250px] sm:h-[400px] overflow-hidden bg-gray-100">
+  <img
+    src={getImageUrl(selectedBlog.imageUrl)}
+    alt={selectedBlog.title}
+    className="w-full h-full object-contain"
+    onError={(e) => {
+      (e.target as HTMLImageElement).src =
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800";
+    }}
+  />
+</div>
 
             {/* Modal Content */}
             <div className="p-6 sm:p-10">
