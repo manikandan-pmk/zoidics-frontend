@@ -225,7 +225,7 @@ const Portfolio: React.FC = () => {
           {/* Grid */}
           {!loading && !error && projects.length > 0 && (
             <div className="portfolio-grid grid grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:gap-x-10 lg:gap-y-20">
-              {projects.map((project) => (
+              {projects.slice(0, 2).map((project) => (
                 <article
                   key={project.id}
                   onClick={() => setSelectedProject(project)}
