@@ -264,7 +264,7 @@ const CloudAndDeployment = () => {
     <>
     <Seo
       title="Cloud & Deployment Services"
-      description="Zoidics Software Service provides reliable cloud and deployment solutions for websites, web apps, APIs, and backend systems, including server setup, Docker, CI/CD, databases, SSL, monitoring, backups, security, cloud migration, and scalable production infrastructure."
+      description="Zoidics Software Solutions provides reliable cloud and deployment solutions for websites, web apps, APIs, and backend systems, including server setup, Docker, CI/CD, databases, SSL, monitoring, backups, security, cloud migration, and scalable production infrastructure."
       keywords="cloud deployment services, cloud deployment company Chennai, cloud hosting Chennai, deployment services, DevOps services Chennai, server setup, VPS deployment, Docker deployment, CI/CD pipeline, AWS deployment, Google Cloud deployment, DigitalOcean deployment, Nginx setup, SSL setup, database deployment, cloud migration, server monitoring, application deployment"
       url="https://zoidics.com/services/cloud-deployment"
     />

@@ -141,8 +141,8 @@ const Contact: React.FC = () => {
 
       <Seo
         title="Contact Us"
-        description="Get in touch with Zoidics Software Service for web development, mobile app development, AI solutions, business automation, custom software, and digital solutions."
-        keywords="contact Zoidics, Zoidics Software Service contact, web development company Chennai, software development Chennai, app development Chennai, AI development company, custom software development"
+        description="Get in touch with Zoidics Software Solutions for web development, mobile app development, AI solutions, business automation, custom software, and digital solutions."
+        keywords="contact Zoidics, Zoidics Software Solutions contact, web development company Chennai, software development Chennai, app development Chennai, AI development company, custom software development"
         url="https://zoidics.com/contact"
       />
 

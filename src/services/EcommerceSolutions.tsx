@@ -254,7 +254,7 @@ const EcommerceSolutions = () => {
     <>
      <Seo
       title="E-commerce Development Services"
-      description="Zoidics Software Service builds fast, secure, scalable e-commerce websites and online stores with product catalogues, search, cart and checkout, payments, inventory, shipping, admin dashboards, marketing tools, analytics, mobile apps, and AI-powered features."
+      description="Zoidics Software Solutions builds fast, secure, scalable e-commerce websites and online stores with product catalogues, search, cart and checkout, payments, inventory, shipping, admin dashboards, marketing tools, analytics, mobile apps, and AI-powered features."
       keywords="e-commerce development, ecommerce development company Chennai, e-commerce website development, ecommerce website Chennai, online store development, custom ecommerce development, shopping website development, React ecommerce, Next.js ecommerce, payment integration, Razorpay integration, Stripe integration, ecommerce admin panel, inventory management, multi-vendor ecommerce, ecommerce mobile app, ecommerce SEO, AI ecommerce"
       url="https://zoidics.com/services/ecommerce-solutions"
     />

@@ -14,8 +14,8 @@ const Home = () => {
     <div>
       <Seo
         title="Zoidics Software Solutions"
-        description="Zoidics Software Service builds modern websites, web applications, mobile apps, and custom software solutions for businesses."
-        keywords="web development, app development, React development, Node.js development, full stack development, software development"
+        description="Zoidics builds custom software, websites, mobile apps, AI chatbots, billing systems and business automation for growing businesses."
+        keywords="software development company, web development, app development, AI chatbots, business automation, custom software"
         url="https://zoidics.com/"
       />
       <Hero />

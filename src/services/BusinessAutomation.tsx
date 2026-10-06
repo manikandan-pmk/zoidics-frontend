@@ -224,7 +224,7 @@ const BusinessAutomation = () => {
     <>
      <Seo
       title="Business Automation Services"
-      description="Zoidics Software Service builds custom business automation solutions that replace repetitive manual work with reliable workflows, integrations, AI-assisted automation, data synchronization, notifications, reporting, and secure business processes."
+      description="Zoidics Software Solutions builds custom business automation solutions that replace repetitive manual work with reliable workflows, integrations, AI-assisted automation, data synchronization, notifications, reporting, and secure business processes."
       keywords="business automation services, business automation company Chennai, workflow automation, business process automation, automation software development, custom workflow automation, AI automation, process automation Chennai, API integration, workflow management, data automation, document automation, CRM automation, payment automation"
       url="https://zoidics.com/services/business-automation"
     />

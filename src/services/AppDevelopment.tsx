@@ -203,7 +203,7 @@ const AppDevelopment = () => {
     <>
       <Seo
         title="Mobile App Development"
-        description="Zoidics Software Service designs and develops fast, secure, scalable mobile apps for businesses, startups, and organizations with modern UI/UX, powerful APIs, integrations, and reliable backend systems."
+        description="Zoidics Software Solutions designs and develops fast, secure, scalable mobile apps for businesses, startups, and organizations with modern UI/UX, powerful APIs, integrations, and reliable backend systems."
         keywords="mobile app development, mobile app development company Chennai, app development Chennai, Android app development, iOS app development, React Native app development, Flutter app development, custom mobile apps, business mobile app, mobile application development, app UI UX design, app API integration"
         url="https://zoidics.com/services/app-development"
       />

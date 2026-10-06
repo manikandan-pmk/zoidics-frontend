@@ -211,7 +211,7 @@ const AIIntegration = () => {
     <>
      <Seo
       title="AI Integration Services"
-      description="Zoidics Software Service helps businesses integrate AI into existing websites, web apps, mobile apps, and business systems to automate workflows, improve customer experiences, and solve real business problems."
+      description="Zoidics Software Solutions helps businesses integrate AI into existing websites, web apps, mobile apps, and business systems to automate workflows, improve customer experiences, and solve real business problems."
       keywords="AI integration services, AI integration company Chennai, AI development Chennai, artificial intelligence integration, AI automation, business AI solutions, AI API integration, OpenAI integration, Gemini integration, Claude integration, RAG integration, AI web app integration, AI mobile app integration"
       url="https://zoidics.com/services/ai-integration"
     />

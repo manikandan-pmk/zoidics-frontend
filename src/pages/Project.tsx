@@ -261,7 +261,7 @@ const Project = () => {
       <>
         <Seo
           title="Our Projects"
-          description="Explore Zoidics Software Service projects built with modern technologies, thoughtful design, scalable architecture, and powerful digital solutions."
+          description="Explore Zoidics Software Solutions projects built with modern technologies, thoughtful design, scalable architecture, and powerful digital solutions."
           keywords="Zoidics projects, web development projects, React projects, Node.js projects, full stack projects, software development projects"
           url="https://zoidics.com/projects"
         />
@@ -288,7 +288,7 @@ const Project = () => {
       <>
         <Seo
           title="Our Projects"
-          description="Explore Zoidics Software Service projects built with modern technologies, thoughtful design, scalable architecture, and powerful digital solutions."
+          description="Explore Zoidics Software Solutions projects built with modern technologies, thoughtful design, scalable architecture, and powerful digital solutions."
           keywords="Zoidics projects, web development projects, React projects, Node.js projects, full stack projects, software development projects"
           url="https://zoidics.com/projects"
         />
@@ -332,7 +332,7 @@ const Project = () => {
 
       <Seo
         title="Our Projects"
-        description="Explore Zoidics Software Service projects built with modern technologies, thoughtful design, scalable architecture, and powerful digital solutions for businesses and startups."
+        description="Explore Zoidics Software Solutions projects built with modern technologies, thoughtful design, scalable architecture, and powerful digital solutions for businesses and startups."
         keywords="Zoidics projects, web development projects, React projects, Node.js projects, full stack projects, mobile app projects, software development projects, Chennai software development"
         url="https://zoidics.com/projects"
       />
@@ -398,7 +398,7 @@ const Project = () => {
 
                       <img
                         src={image}
-                        alt={`${project.title} project by Zoidics Software Service`}
+                        alt={`${project.title} project by Zoidics Software Solutions`}
                         loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
                         onError={(event) => {

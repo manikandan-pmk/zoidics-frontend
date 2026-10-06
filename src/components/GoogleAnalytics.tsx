@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { initGA, trackPageView } from "../analytics";
+import { initGA, trackPageView, disableGA } from "../analytics";
 import { getCookiePreferences } from "../utils/cookieConsent";
 
 const GoogleAnalytics = () => {
@@ -11,6 +11,8 @@ const GoogleAnalytics = () => {
       const preferences = getCookiePreferences();
 
       if (!preferences?.analytics) {
+        // Visitor rejected, or turned analytics off after accepting: stop tracking
+        disableGA();
         return;
       }
 

@@ -41,8 +41,8 @@ const PrivacyPolicy: React.FC = () => {
     <>
     <Seo
       title="Privacy Policy"
-      description="Read the Zoidics Privacy Policy to learn how we collect, use, store, protect, and manage personal information when you visit our website or communicate with Zoidics Software Service."
-      keywords="Zoidics privacy policy, Zoidics Software Service privacy policy, data protection, personal information, privacy policy Chennai, website privacy policy, data security, cookies policy"
+      description="Read the Zoidics Privacy Policy to learn how we collect, use, store, protect, and manage personal information when you visit our website or communicate with Zoidics Software Solutions."
+      keywords="Zoidics privacy policy, Zoidics Software Solutions privacy policy, data protection, personal information, privacy policy Chennai, website privacy policy, data security, cookies policy"
       url="https://zoidics.com/privacy-policy"
     />
     <main className="min-h-screen w-full bg-[#ffe9d9] font-['Sora',sans-serif] text-[#080808]">
@@ -122,7 +122,7 @@ const PrivacyPolicy: React.FC = () => {
               </div>
 
               <p className="text-base leading-8 text-black/70 sm:text-lg">
-                Welcome to Zoidics Solution ("Zoidics", "we", "our", or "us").
+                Welcome to Zoidics Software Solution ("Zoidics", "we", "our", or "us").
                 This Privacy Policy explains how Zoidics collects, uses, stores,
                 and protects personal information when you visit zoidics.com,
                 submit an enquiry, or communicate with us regarding our
@@ -575,7 +575,7 @@ const PrivacyPolicy: React.FC = () => {
               </p>
 
               <div className="mt-6 rounded-3xl bg-black p-6 text-white sm:p-8">
-                <p className="text-lg font-bold">Zoidics Solution</p>
+                <p className="text-lg font-bold">Zoidics Software Solutions</p>
 
                 <p className="mt-4 text-white/60">
                   Website: <span className="text-white">zoidics.com</span>

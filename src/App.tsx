@@ -1,13 +1,16 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-
-import { useEffect } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import ScrollToTop from "./components/ScrollToTop";
-
-import { trackPageView } from "./analytics";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
@@ -15,17 +18,6 @@ import Project from "./pages/Project";
 import Contact from "./pages/Contact";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-
-import WebDevelopment from "./services/WebDevelopment";
-import AppDevelopment from "./services/AppDevelopment";
-import AIIntegration from "./services/AIIntegration";
-import AIChatbots from "./services/AIChatbots";
-import BusinessAutomation from "./services/BusinessAutomation";
-import EcommerceSolutions from "./services/EcommerceSolutions";
-import BillingSystems from "./services/BillingSystems";
-import CloudAndDeployment from "./services/CloudAndDeployment";
-import SEOAndGrowth from "./services/SEOAndGrowth";
-import CustomSoftware from "./services/CustomSoftware";
 
 import Services from "./pages/Services";
 import CookieConsent from "./components/CookieConsent";
@@ -37,16 +29,12 @@ function AppLayout() {
     location.pathname === "/privacy-policy" ||
     location.pathname === "/terms-and-conditions";
 
-  // Google Analytics page tracking
-  useEffect(() => {
-    const currentPath = location.pathname + location.search;
-
-    trackPageView(currentPath);
-  }, [location.pathname, location.search]);
-
   return (
     <>
       <ScrollToTop />
+
+      {/* Consent-based GA tracking (loads GA only after analytics is accepted) */}
+      <GoogleAnalytics />
 
       {!isLegalPage && <Navbar />}
 
@@ -63,25 +51,47 @@ function AppLayout() {
 
         <Route path="/contact" element={<Contact />} />
 
-        <Route path="/web-development" element={<WebDevelopment />} />
-
-        <Route path="/app-development" element={<AppDevelopment />} />
-
-        <Route path="/ai-integration" element={<AIIntegration />} />
-
-        <Route path="/ai-chatbot" element={<AIChatbots />} />
-
-        <Route path="/business-automation" element={<BusinessAutomation />} />
-
-        <Route path="/seo-growth" element={<SEOAndGrowth />} />
-
-        <Route path="/ecommerce-solutions" element={<EcommerceSolutions />} />
-
-        <Route path="/billing-system" element={<BillingSystems />} />
-
-        <Route path="/cloud-solutions" element={<CloudAndDeployment />} />
-
-        <Route path="/custom-software" element={<CustomSoftware />} />
+        {/* Old service URLs -> one real URL per service (avoids duplicate pages for Google) */}
+        <Route
+          path="/web-development"
+          element={<Navigate to="/services/web-development" replace />}
+        />
+        <Route
+          path="/app-development"
+          element={<Navigate to="/services/app-development" replace />}
+        />
+        <Route
+          path="/ai-integration"
+          element={<Navigate to="/services/ai-integration" replace />}
+        />
+        <Route
+          path="/ai-chatbot"
+          element={<Navigate to="/services/ai-chatbots" replace />}
+        />
+        <Route
+          path="/business-automation"
+          element={<Navigate to="/services/business-automation" replace />}
+        />
+        <Route
+          path="/seo-growth"
+          element={<Navigate to="/services/seo-growth" replace />}
+        />
+        <Route
+          path="/ecommerce-solutions"
+          element={<Navigate to="/services/ecommerce-solutions" replace />}
+        />
+        <Route
+          path="/billing-system"
+          element={<Navigate to="/services/billing-systems" replace />}
+        />
+        <Route
+          path="/cloud-solutions"
+          element={<Navigate to="/services/cloud-deployment" replace />}
+        />
+        <Route
+          path="/custom-software"
+          element={<Navigate to="/services/custom-software" replace />}
+        />
 
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 

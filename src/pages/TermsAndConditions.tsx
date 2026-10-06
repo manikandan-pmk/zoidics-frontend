@@ -40,8 +40,8 @@ const TermsAndConditions: React.FC = () => {
     <>
     <Seo
       title="Terms & Conditions"
-      description="Read the Terms and Conditions for using the Zoidics Software Service website, services, digital solutions, and communication channels."
-      keywords="Zoidics terms and conditions, Zoidics Software Service terms, website terms and conditions, software services Chennai, web development terms, app development terms"
+      description="Read the Terms and Conditions for using the Zoidics Software Solutions website, services, digital solutions, and communication channels."
+      keywords="Zoidics terms and conditions, Zoidics Software Solutions terms, website terms and conditions, software services Chennai, web development terms, app development terms"
       url="https://zoidics.com/terms-and-conditions"
     />
 
@@ -119,7 +119,7 @@ const TermsAndConditions: React.FC = () => {
               </div>
 
               <p className="text-base leading-8 text-black/70 sm:text-lg">
-                Welcome to Zoidics Solution ("Zoidics", "we", "our", or "us").
+                Welcome to Zoidics Software Solutions ("Zoidics", "we", "our", or "us").
                 These Terms & Conditions govern your use of zoidics.com and your
                 interaction with our website and services. By accessing or using
                 our website, you agree to these Terms & Conditions. If you do
@@ -704,7 +704,7 @@ const TermsAndConditions: React.FC = () => {
               icon={<Mail size={21} />}
             >
               <div className="rounded-3xl bg-black p-6 text-white sm:p-8">
-                <p className="text-xl font-bold">Zoidics Solution</p>
+                <p className="text-xl font-bold">Zoidics Software Solutions</p>
 
                 <p className="mt-4 text-white/60">
                   Website: <span className="text-white">zoidics.com</span>

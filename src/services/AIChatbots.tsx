@@ -227,7 +227,7 @@ const AIChatbots = () => {
     <>
       <Seo
         title="AI Chatbot Development"
-        description="Build intelligent AI chatbots with Zoidics Software Service to automate customer support, generate leads, answer questions, handle bookings, connect business systems, and deliver reliable conversational experiences."
+        description="Build intelligent AI chatbots with Zoidics Software Solutions to automate customer support, generate leads, answer questions, handle bookings, connect business systems, and deliver reliable conversational experiences."
         keywords="AI chatbot development, AI chatbot development company Chennai, chatbot development Chennai, custom AI chatbot, business chatbot, customer support chatbot, WhatsApp chatbot, AI automation, conversational AI, chatbot integration, OpenAI chatbot, Gemini chatbot, Claude chatbot, RAG chatbot"
         url="https://zoidics.com/services/ai-chatbots"
       />

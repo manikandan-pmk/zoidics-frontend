@@ -255,7 +255,7 @@ const BillingSystems = () => {
     <>
      <Seo
       title="Billing Software Development"
-      description="Zoidics Software Service builds custom billing and invoicing systems for businesses with GST-ready billing, POS, payments, inventory, customer management, reports, accounting integrations, and scalable cloud solutions."
+      description="Zoidics Software Solutions builds custom billing and invoicing systems for businesses with GST-ready billing, POS, payments, inventory, customer management, reports, accounting integrations, and scalable cloud solutions."
       keywords="billing software development, billing software company Chennai, custom billing software, invoicing software Chennai, GST billing software, POS billing software, invoice management system, billing system development, payment integration, inventory billing software, business billing software, accounting integration"
       url="https://zoidics.com/services/billing-systems"
     />

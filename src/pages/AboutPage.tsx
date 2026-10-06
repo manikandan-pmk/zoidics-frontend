@@ -81,8 +81,8 @@ const AboutPage: React.FC = () => {
       {/* ================= SEO ================= */}
       <Seo
         title="About Us"
-        description="Learn about Zoidics Software Service, a Chennai-based software development team building modern websites, mobile apps, AI solutions, chatbots, business automation systems, and custom software for businesses and startups."
-        keywords="about Zoidics, Zoidics Software Service, software development company Chennai, web development Chennai, mobile app development Chennai, AI development, AI chatbot development, business automation, custom software development"
+        description="Learn about Zoidics Software Solutions, a Chennai-based software development team building modern websites, mobile apps, AI solutions, chatbots, business automation systems, and custom software for businesses and startups."
+        keywords="about Zoidics, Zoidics Software Solutions, software development company Chennai, web development Chennai, mobile app development Chennai, AI development, AI chatbot development, business automation, custom software development"
         url="https://zoidics.com/about"
       />
 
@@ -107,7 +107,7 @@ const AboutPage: React.FC = () => {
 
               <img
                 src={image}
-                alt="Zoidics Software Service team and development"
+                alt="Zoidics Software Solutions team and development"
                 className="relative z-10 w-[85%] max-w-[420px] h-auto object-cover object-bottom rounded-xl filter drop-shadow-xl"
               />
             </div>
@@ -132,7 +132,7 @@ const AboutPage: React.FC = () => {
               <div className="animate-item flex flex-col gap-4 text-[#444] text-[16px] leading-[1.7] font-medium">
                 <p>
                   <strong className="text-[#080808]">
-                    Zoidics Software Service
+                    Zoidics Software Solutions
                   </strong>{" "}
                   is a Chennai-based software development team helping
                   businesses, startups, and individuals transform ideas into

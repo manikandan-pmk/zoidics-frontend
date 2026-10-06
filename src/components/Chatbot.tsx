@@ -12,7 +12,7 @@ type Message = {
 type Lead = Record<string, unknown>;
 
 const WELCOME_MESSAGE =
-  "Welcome to Zoidics. We help businesses with websites, apps, AI, automation and custom software. What would you like help with today?";
+  "Welcome to Zoidics Software Solutions. We help businesses with websites, apps, AI, automation and custom software. What would you like help with today?";
 
 const ERROR_MESSAGE =
   "Sorry, something went wrong. Please try again or contact us at connect@zoidics.com.";
@@ -616,7 +616,7 @@ export default function Chatbot() {
               <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[13px] border border-white/15 bg-white shadow-lg p-1 sm:h-12 sm:w-12 sm:rounded-[16px]">
                 <img
                   src={logo}
-                  alt="Zoidics Logo"
+                  alt="Zoidics Software Solutions Logo"
                   className="h-full w-full object-contain"
                 />
                 <span className="absolute bottom-0.5 right-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-green-500" />

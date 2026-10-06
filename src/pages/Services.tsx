@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import gsap from "gsap";
+import Seo from "../components/Seo";
 import {
   ArrowUpRight,
   Bot,
@@ -108,7 +109,6 @@ const serviceComponents: Record<string, React.ReactNode> = {
 // ======================================================
 
 const Services = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -124,13 +124,13 @@ const Services = () => {
 
   const selectedService = selectedSlug ? serviceComponents[selectedSlug] : null;
 
-  // --------------------------------------------------
-  // Handle service click & Animations
-  // --------------------------------------------------
+  // Only one <h1> per page: when a service is open, that service page
+  // has its own <h1>, so this heading becomes a <p> (same look).
+  const Heading = selectedSlug ? "p" : "h1";
 
-  const handleServiceClick = (slug: string) => {
-    navigate(`/services/${slug}`);
-  };
+  // --------------------------------------------------
+  // Animations
+  // --------------------------------------------------
 
   // Scroll smoothly to the rendered component when a new one is selected
   useEffect(() => {
@@ -155,6 +155,18 @@ const Services = () => {
   return (
     <main className="min-h-screen bg-[#fafafa] font-['Sora',sans-serif] text-[#080808]">
       {/* ==================================================
+          SEO (only for /services; each service page has its own)
+      ================================================== */}
+
+      {!selectedService && (
+        <Seo
+          title="Our Services"
+          description="Web and app development, AI chatbots, AI integration, billing systems, automation, cloud deployment, e-commerce and SEO services from Zoidics in Chennai."
+          url="https://zoidics.com/services"
+        />
+      )}
+
+      {/* ==================================================
           SERVICE SELECTOR HERO
       ================================================== */}
 
@@ -171,7 +183,7 @@ const Services = () => {
               Our Services
             </p>
 
-            <h1 className="max-w-4xl text-[40px] font-bold leading-[1.1] tracking-tight md:text-[56px] lg:text-[64px] text-center">
+            <Heading className="max-w-4xl text-[40px] font-bold leading-[1.1] tracking-tight md:text-[56px] lg:text-[64px] text-center">
               {/* Wraps "Digital" to properly anchor the orange circle */}
               <span className="relative z-10 inline-block">
                 <span className="absolute -left-3 lg:-left-5 top-0 lg:top-1 w-[50px] h-[50px] md:w-[65px] md:h-[65px] lg:w-[75px] lg:h-[75px] bg-[#ffce85] rounded-full -z-10 mix-blend-multiply"></span>
@@ -179,7 +191,7 @@ const Services = () => {
               </span>{" "}
               solutions built
               <br className="hidden md:block" /> around your business.
-            </h1>
+            </Heading>
 
             <p className="mt-6 max-w-2xl text-[16px] leading-[1.7] text-[#555] md:text-[18px]">
               Explore our services and discover the right technology solution
@@ -188,7 +200,7 @@ const Services = () => {
           </div>
 
           {/* ==================================================
-              SERVICE PILL BUTTONS
+              SERVICE PILL LINKS (real <a href> so Google can crawl them)
           ================================================== */}
 
           <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
@@ -197,10 +209,9 @@ const Services = () => {
               const isActive = selectedSlug === service.slug;
 
               return (
-                <button
+                <Link
                   key={service.slug}
-                  type="button"
-                  onClick={() => handleServiceClick(service.slug)}
+                  to={`/services/${service.slug}`}
                   className={`
                     group flex items-center gap-3 rounded-full bg-white px-5 py-3.5
                     shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-300
@@ -251,7 +262,7 @@ const Services = () => {
                       className="absolute -translate-x-5 translate-y-5 text-[#ff8a24] transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0"
                     />
                   </div>
-                </button>
+                </Link>
               );
             })}
           </div>

@@ -246,7 +246,7 @@ const CustomSoftware = () => {
     <>
      <Seo
       title="Custom Software Development"
-      description="Zoidics Software Service builds custom software tailored to the way your business works, including management systems, CRM platforms, internal tools, customer portals, dashboards, workflow software, billing systems, integrations, AI-powered features, and legacy system modernization."
+      description="Zoidics Software Solutions builds custom software tailored to the way your business works, including management systems, CRM platforms, internal tools, customer portals, dashboards, workflow software, billing systems, integrations, AI-powered features, and legacy system modernization."
       keywords="custom software development, custom software development company Chennai, software development Chennai, business software development, custom business software, enterprise software development, CRM development, management software, internal business tools, customer portal development, workflow software, dashboard development, billing software, API integration, AI software development, legacy software modernization"
       url="https://zoidics.com/services/custom-software"
     />

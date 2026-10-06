@@ -241,7 +241,7 @@ const SEOAndGrowth = () => {
     <>
      <Seo
       title="SEO & Growth Services"
-      description="Zoidics Software Service provides SEO and growth services that help businesses improve search visibility, attract the right customers, increase organic traffic, and generate more enquiries and sales through technical SEO, content, local SEO, e-commerce SEO, analytics, and conversion optimization."
+      description="Zoidics Software Solutions provides SEO and growth services that help businesses improve search visibility, attract the right customers, increase organic traffic, and generate more enquiries and sales through technical SEO, content, local SEO, e-commerce SEO, analytics, and conversion optimization."
       keywords="SEO services, SEO company Chennai, SEO services Chennai, search engine optimization, technical SEO, on-page SEO, keyword research, local SEO, e-commerce SEO, SEO audit, Google Search Console, Google Analytics, content strategy, link building, conversion optimization, website SEO, SEO for React, SEO for Next.js, SEO for WordPress, digital growth services"
       url="https://zoidics.com/services/seo-growth"
     />

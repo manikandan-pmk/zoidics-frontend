@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
         <Link to="/" className="z-10 flex items-center" onClick={closeDrawer}>
           <img
             src={logo}
-            alt="Zoidics Software Service Logo"
+            alt="Zoidics Software Solutions Logo"
             className="h-25 object-contain"
           />
         </Link>

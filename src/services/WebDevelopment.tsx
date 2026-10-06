@@ -173,7 +173,7 @@ const WebDevelopment = () => {
     <>
     <Seo
       title="Web Development Services"
-      description="Zoidics Software Service builds fast, secure, scalable websites and web applications for businesses and startups, including custom websites, business platforms, dashboards, portals, e-commerce systems, APIs, integrations, and modern React and Next.js solutions."
+      description="Zoidics Software Solutions builds fast, secure, scalable websites and web applications for businesses and startups, including custom websites, business platforms, dashboards, portals, e-commerce systems, APIs, integrations, and modern React and Next.js solutions."
       keywords="web development, web development company Chennai, website development Chennai, web application development, custom website development, React.js development, Next.js development, Node.js development, full stack web development, business website development, custom web applications, responsive web design, API development, database development, e-commerce development, web portal development, website maintenance"
       url="https://zoidics.com/services/web-development"
     />
