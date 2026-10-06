@@ -303,6 +303,7 @@ export default function Chatbot() {
     { role: "bot", content: WELCOME_MESSAGE },
   ]);
   const [lead, setLead] = useState<Lead>({});
+  const [sessionId, setSessionId] = useState<number | null>(null);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -315,6 +316,20 @@ export default function Chatbot() {
 
   const chatWindowRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const storedSessionId = sessionStorage.getItem("zoidics_chat_session_id");
+
+    if (storedSessionId) {
+      const parsedSessionId = Number(storedSessionId);
+
+      if (Number.isInteger(parsedSessionId) && parsedSessionId > 0) {
+        setSessionId(parsedSessionId);
+      } else {
+        sessionStorage.removeItem("zoidics_chat_session_id");
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (open) return;
@@ -450,21 +465,64 @@ export default function Chatbot() {
     setLoading(true);
 
     try {
-      const response = await api.post("/api/chat", {
-  message,
-  history,
-  lead,
-});
+      const response = await api.post(
+        "/api/chat",
+        {
+          message,
+          history,
+          lead,
+          sessionId,
+        },
+        {
+          withCredentials: true,
+        },
+      );
 
-const data = response.data;
-      if (!response.data || !data.success)
-        throw new Error(data.error || "Something went wrong");
+      const data = response.data;
+
+      if (!data?.success) {
+        throw new Error(data?.error || "Something went wrong");
+      }
+
+      if (data.sessionId) {
+        const nextSessionId = Number(data.sessionId);
+
+        if (Number.isInteger(nextSessionId) && nextSessionId > 0) {
+          setSessionId(nextSessionId);
+          sessionStorage.setItem(
+            "zoidics_chat_session_id",
+            String(nextSessionId),
+          );
+        }
+      }
 
       setLead(data.lead ?? {});
-      setMessages((prev) => [...prev, { role: "bot", content: data.reply }]);
-    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        { role: "bot", content: data.reply },
+      ]);
+    } catch (error: any) {
       console.error("Chatbot error:", error);
-      setMessages((prev) => [...prev, { role: "bot", content: ERROR_MESSAGE }]);
+
+      // Even if the API returns an error after creating the session,
+      // keep that session ID so the next message stays in the same chat.
+      const failedSessionId = Number(error?.response?.data?.sessionId);
+
+      if (
+        Number.isInteger(failedSessionId) &&
+        failedSessionId > 0
+      ) {
+        setSessionId(failedSessionId);
+        sessionStorage.setItem(
+          "zoidics_chat_session_id",
+          String(failedSessionId),
+        );
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        { role: "bot", content: ERROR_MESSAGE },
+      ]);
     } finally {
       setLoading(false);
     }
@@ -472,6 +530,11 @@ const data = response.data;
 
   const startNewChat = () => {
     if (loading) return;
+
+    // Explicitly start a completely new ChatSession.
+    sessionStorage.removeItem("zoidics_chat_session_id");
+    setSessionId(null);
+
     setMessages([{ role: "bot", content: WELCOME_MESSAGE }]);
     setLead({});
     setInput("");
