@@ -207,7 +207,7 @@ const WebDevelopment = () => {
 
             {/* Hover Fly In/Out Button */}
             <a
-              href="#contact"
+              href="/contact"
               className="group relative inline-flex items-center justify-center gap-3 bg-[#080808] text-white px-8 py-4 rounded-[12px] font-bold text-[15px] overflow-hidden transition-colors hover:bg-[#1a1a1a] shadow-lg shrink-0 whitespace-nowrap"
             >
               Start Your Project

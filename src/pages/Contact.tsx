@@ -447,7 +447,7 @@ const Contact: React.FC = () => {
 
                   {/* Instagram */}
                   <a
-                    href="https://instagram.com/zoidics_solutions"
+                    href="https://instagram.com/zoidics_software_solutions"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-colors hover:text-[#E1306C]"

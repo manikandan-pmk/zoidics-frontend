@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   Navigate,
+  Link,
   useLocation,
 } from "react-router-dom";
 
@@ -11,6 +12,7 @@ import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import ScrollToTop from "./components/ScrollToTop";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import Seo from "./components/Seo";
 
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
@@ -21,6 +23,39 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 import Services from "./pages/Services";
 import CookieConsent from "./components/CookieConsent";
+
+function NotFound() {
+  return (
+    <>
+      <Seo
+        title="Page not found"
+        description="The page you are looking for does not exist."
+        noindex
+      />
+      <main
+        style={{
+          minHeight: "60vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: "6rem 1rem",
+        }}
+      >
+        <h1 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>
+          404 – Page not found
+        </h1>
+        <p style={{ marginBottom: "1.5rem" }}>
+          The page you are looking for doesn't exist or has moved.
+        </p>
+        <Link to="/" style={{ textDecoration: "underline" }}>
+          Back to home
+        </Link>
+      </main>
+    </>
+  );
+}
 
 function AppLayout() {
   const location = useLocation();
@@ -96,6 +131,9 @@ function AppLayout() {
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+        {/* Catch-all: unknown URLs get a noindex 404 page instead of a blank screen */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       {!isLegalPage && <Footer />}

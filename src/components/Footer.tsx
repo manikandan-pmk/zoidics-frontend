@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
 
                 {/* Instagram */}
                 <a
-                  href="https://instagram.com/zoidics_solutions"
+                  href="https://instagram.com/zoidics_software_solutions"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
               style={{ backfaceVisibility: "hidden" }}
             >
               <p className="text-[19px] font-medium leading-[1.4] text-white">
-                Looking for a hectic designer?
+                Have a project in mind?
               </p>
               <div className="flex items-end justify-between mt-auto">
                 <span className="text-[#ffb646] text-xl font-semibold">
@@ -137,7 +137,7 @@ const Footer: React.FC = () => {
               style={{ backfaceVisibility: "hidden" }}
             >
               <p className="text-[19px] font-medium leading-[1.4] text-white">
-                Want a more in-depth look at my history?
+                Ready to turn your idea into reality?
               </p>
               <div className="flex items-end justify-between mt-auto">
                 <span className="text-[#ffb646] text-xl font-semibold">

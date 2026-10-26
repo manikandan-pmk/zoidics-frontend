@@ -1,7 +1,8 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
 const SITE_URL = "https://zoidics.com";
-const BRAND = "Zoidics Software Solutions";
+const BRAND = "Zoidics";
 
 interface SEOProps {
   title?: string;
@@ -13,12 +14,6 @@ interface SEOProps {
   schema?: object; // optional page-specific JSON-LD
 }
 
-const getDefaultUrl = () => {
-  if (typeof window === "undefined") return `${SITE_URL}/`;
-  const path = window.location.pathname.replace(/\/+$/, "");
-  return `${SITE_URL}${path || "/"}`;
-};
-
 const Seo = ({
   title,
   description,
@@ -28,10 +23,16 @@ const Seo = ({
   noindex = false,
   schema,
 }: SEOProps) => {
-  const canonical = url ?? getDefaultUrl();
-  const fullTitle = title
-    ? `${title} | ${BRAND}`
-    : `${BRAND} | Web & App Development`;
+  const { pathname } = useLocation();
+  const path = pathname.replace(/\/+$/, "") || "/";
+  const canonical = url ?? `${SITE_URL}${path === "/" ? "/" : path}`;
+
+  // Never repeat the brand: only append it if the title doesn't already contain it
+  const fullTitle = !title
+    ? `${BRAND} | AI, Web & App Development in Chennai`
+    : title.toLowerCase().includes("zoidics")
+    ? title
+    : `${title} | ${BRAND}`;
 
   return (
     <Helmet>

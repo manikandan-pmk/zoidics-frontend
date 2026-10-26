@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <div>
       <Seo
-        title="Zoidics Software Solutions"
+        title="Zoidics | AI, Web & Mobile Software Solutions"
         description="Zoidics builds custom software, websites, mobile apps, AI chatbots, billing systems and business automation for growing businesses."
         keywords="software development company, web development, app development, AI chatbots, business automation, custom software"
         url="https://zoidics.com/"
